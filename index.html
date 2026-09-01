@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MEDICS8 - Adjustable ROM Knee Brace</title>
+  <title>MEDICS8 - Adjustable ROM Knee Brace | Orthosis Recovery</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <!-- Font Awesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Google Font (Plus Jakarta Sans & Inter) -->
+  <!-- Google Fonts: Outfit & Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
       theme: {
         extend: {
           fontFamily: {
-            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Outfit"', 'sans-serif'],
           },
           colors: {
-            medics: {
-              navy: '#0b1e36',
-              deep: '#061324',
-              blue: '#0284c7',
-              sky: '#38bdf8',
-              accent: '#2563eb',
-              light: '#f0f9ff'
+            med: {
+              black: '#071212',
+              dark: '#0d2222',
+              card: '#132d2d',
+              border: '#1d4242',
+              teal: '#0d9488',
+              tealLight: '#14b8a6',
+              mint: '#2dd4bf',
+              ice: '#f0fdfa',
+              softBg: '#f4f9f9',
+              accent: '#f97316',
+              accentHover: '#ea580c'
             }
           }
         }
@@ -39,186 +45,200 @@
   <style>
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: #f8fafc;
+      background-color: #f6faf9;
       color: #1e293b;
       overflow-x: hidden;
     }
 
-    /* Scroll Animation Styles */
+    h1, h2, h3, h4, h5, .font-heading {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    /* Modern Glow & Mesh Utilities */
+    .bg-mesh {
+      background: radial-gradient(at 0% 0%, rgba(20, 184, 166, 0.08) 0px, transparent 50%),
+                  radial-gradient(at 100% 100%, rgba(13, 148, 136, 0.06) 0px, transparent 50%);
+    }
+
+    .dark-mesh {
+      background: radial-gradient(circle at 10% 20%, rgba(20, 184, 166, 0.18) 0%, transparent 40%),
+                  radial-gradient(circle at 90% 80%, rgba(45, 212, 191, 0.12) 0%, transparent 40%);
+    }
+
+    /* Scroll Animations */
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
+      transform: translateY(28px);
+      transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
-    }
-
-    .reveal.reveal-left {
-      transform: translateX(-40px);
-    }
-
-    .reveal.reveal-right {
-      transform: translateX(40px);
-    }
-
-    .reveal.reveal-scale {
-      transform: scale(0.92);
     }
 
     .reveal.active {
       opacity: 1;
-      transform: translate(0, 0) scale(1);
+      transform: translateY(0);
     }
 
-    /* Staggered Delay Helpers */
-    .delay-100 { transition-delay: 100ms; }
-    .delay-200 { transition-delay: 200ms; }
-    .delay-300 { transition-delay: 300ms; }
-    .delay-400 { transition-delay: 400ms; }
-    .delay-500 { transition-delay: 500ms; }
-
-    /* Custom Borders & Glow */
-    .glow-border {
-      transition: all 0.4s ease;
+    .card-hover-fx {
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .glow-border:hover {
-      border-color: #38bdf8;
-      box-shadow: 0 14px 30px -10px rgba(2, 132, 199, 0.18);
-      transform: translateY(-4px);
+    .card-hover-fx:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -12px rgba(13, 148, 136, 0.15);
     }
   </style>
 </head>
-<body class="antialiased selection:bg-sky-500 selection:text-white">
+<body class="antialiased selection:bg-teal-500 selection:text-white bg-mesh">
 
-  <!-- ================= TOP HEADER BAR ================= -->
-  <header class="sticky top-0 z-50 bg-medics-navy/95 backdrop-blur-md text-white border-b border-slate-700/60 shadow-lg transition-all duration-300">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex flex-wrap justify-between items-center gap-4">
+  <!-- ================= TOP TRUST BAR & FLOATING NAVIGATION ================= -->
+  <div class="bg-med-black text-slate-300 text-xs py-2 px-4 border-b border-teal-900/40">
+    <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2">
+      <div class="flex items-center gap-4 mx-auto md:mx-0">
+        <span class="inline-flex items-center gap-1.5 text-teal-400 font-medium">
+          <i class="fa-solid fa-shield-halved"></i> PT Medika Sejahtera Delapan Official
+        </span>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="hidden sm:inline-flex items-center gap-1.5 text-slate-300">
+          <i class="fa-regular fa-circle-check text-emerald-400"></i> Alat Orthosis Medis Bersertifikasi
+        </span>
+      </div>
+      <div class="hidden md:flex items-center gap-6 text-slate-300">
+        <span class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-teal-400"></i> Produk Original</span>
+        <span class="flex items-center gap-1.5"><i class="fa-regular fa-circle-check text-teal-400"></i> Kualitas Terjamin</span>
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-teal-400"></i> Pengiriman Cepat</span>
+        <span class="flex items-center gap-1.5"><i class="fa-solid fa-headset text-teal-400"></i> Konsultasi Gratis</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-teal-100 shadow-sm transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
       
-      <!-- Logo PT Medika Sejahtera Delapan -->
-      <div class="flex items-center space-x-3.5 group">
+      <!-- Company Brand Identity -->
+      <a href="#" class="flex items-center gap-3.5 group">
         <img src="https://images.glints.com/unsafe/glints-dashboard.oss-ap-southeast-1.aliyuncs.com/company-logo/d1cd3d546b266b2deebe1ff2832ac754.png" 
              alt="Logo PT Medika Sejahtera Delapan" 
-             class="h-10 w-auto bg-white p-1 rounded-xl shadow-md object-contain transition-transform duration-300 group-hover:scale-105" 
+             class="h-11 w-auto bg-slate-50 p-1.5 rounded-xl border border-teal-100 shadow-sm object-contain group-hover:scale-105 transition-transform" 
              onerror="this.style.display='none'" />
         <div>
-          <span class="font-black tracking-wider text-lg sm:text-xl block leading-none text-white">MEDICS8</span>
-          <span class="text-[9px] tracking-widest text-sky-300 font-semibold uppercase">PT Medika Sejahtera Delapan</span>
+          <div class="flex items-center gap-1.5">
+            <span class="font-heading font-black text-xl tracking-tight text-med-dark">MEDICS</span>
+            <span class="bg-teal-600 text-white font-black text-xs px-1.5 py-0.5 rounded-md">8</span>
+          </div>
+          <p class="text-[10px] tracking-wider text-slate-500 font-bold uppercase">PT Medika Sejahtera Delapan</p>
         </div>
-      </div>
+      </a>
 
-      <!-- Trust Badges Header -->
-      <div class="flex flex-wrap items-center gap-3 sm:gap-6 text-xs sm:text-sm text-slate-200">
-        <div class="flex items-center gap-1.5 bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-700">
-          <i class="fa-regular fa-circle-check text-sky-400 text-sm"></i>
-          <span class="font-medium">Produk Original</span>
-        </div>
-        <div class="flex items-center gap-1.5 bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-700">
-          <i class="fa-regular fa-circle-check text-sky-400 text-sm"></i>
-          <span class="font-medium">Kualitas Terjamin</span>
-        </div>
-        <div class="hidden md:flex items-center gap-1.5 bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-700">
-          <i class="fa-solid fa-truck-fast text-sky-400 text-sm"></i>
-          <span class="font-medium">Pengiriman Cepat</span>
-        </div>
-        <div class="hidden md:flex items-center gap-1.5 bg-slate-800/60 px-3 py-1.5 rounded-full border border-slate-700">
-          <i class="fa-solid fa-headset text-sky-400 text-sm"></i>
-          <span class="font-medium">Konsultasi Gratis</span>
-        </div>
+      <!-- Quick Action CTA in Header -->
+      <div class="flex items-center gap-3">
+        <a href="https://wa.me/628111376788?text=Halo%20Admin%20MEDICS8,%20saya%20ingin%20konsultasi%20mengenai%20produk%20ROM%20Knee%20Brace"
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-teal-700 hover:from-teal-700 hover:to-teal-800 text-white text-xs sm:text-sm font-bold px-4 sm:px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg transition-all hover:scale-[1.02]">
+          <i class="fa-brands fa-whatsapp text-lg text-emerald-300"></i>
+          <span>Konsultasi Gratis</span>
+        </a>
       </div>
 
     </div>
   </header>
 
-  <!-- ================= MAIN CONTENT ================= -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-16 sm:space-y-24">
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 space-y-20 sm:space-y-28">
 
-    <!-- ================= HERO SECTION ================= -->
-    <section class="relative bg-gradient-to-br from-white via-sky-50/40 to-slate-100 rounded-3xl p-6 sm:p-12 lg:p-16 border border-slate-200/90 shadow-xl overflow-hidden reveal">
+    <!-- ================= HERO SECTION (EDITORIAL ASYMMETRIC LOOK) ================= -->
+    <section class="relative bg-gradient-to-b from-white via-teal-50/30 to-emerald-50/20 rounded-[2.5rem] p-6 sm:p-10 lg:p-14 border border-teal-100/80 shadow-xl overflow-hidden reveal">
       
-      <!-- Background Ambient Glow -->
-      <div class="absolute -top-24 -right-24 w-96 h-96 bg-sky-200/50 rounded-full blur-3xl pointer-events-none"></div>
-      <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/40 rounded-full blur-3xl pointer-events-none"></div>
+      <!-- Top Decorative Medical Grid Element -->
+      <div class="absolute -right-20 -top-20 w-80 h-80 bg-teal-200/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-emerald-200/30 rounded-full blur-3xl pointer-events-none"></div>
 
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center relative z-10">
         
-        <!-- Left Column -->
-        <div class="lg:col-span-7 space-y-6 reveal reveal-left">
+        <!-- Left Hero Copy -->
+        <div class="lg:col-span-7 space-y-6 text-left">
           
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sky-100/90 border border-sky-300 text-sky-800 text-xs font-extrabold tracking-wider uppercase">
-            <span class="w-2 h-2 rounded-full bg-sky-600 animate-ping"></span>
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-teal-100/80 border border-teal-300/80 text-teal-900 text-xs font-black tracking-wider uppercase">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-teal-600"></span>
+            </span>
             ADJUSTABLE ORTHOSIS SUPPORT
           </div>
 
           <div class="space-y-3">
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-medics-navy tracking-tight leading-[1.1]">
-              ROM KNEE <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-700">BRACE</span>
+            <h1 class="font-heading text-4xl sm:text-5xl lg:text-6xl font-black text-med-dark tracking-tight leading-[1.08]">
+              ROM KNEE <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">BRACE</span>
             </h1>
-            <h2 class="text-xl sm:text-2xl font-bold text-slate-700 leading-snug">
+            <p class="text-xl sm:text-2xl font-bold text-slate-700 leading-snug">
               Kontrol Gerakan Lutut Lebih Optimal untuk Masa Pemulihan
-            </h2>
+            </p>
           </div>
 
-          <p class="text-base text-slate-600 leading-relaxed max-w-2xl">
+          <p class="text-base text-slate-600 leading-relaxed font-normal">
             Didesain dengan sistem pengaturan sudut (ROM Hinge) yang dapat disesuaikan untuk membantu mengontrol rentang gerak lutut sesuai kebutuhan.
           </p>
 
-          <!-- 4 Feature Badges -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 pt-2">
+          <!-- 4 Core Feature Pills Grid -->
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
             
-            <div class="group bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm hover:border-sky-400 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
-              <div class="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2 group-hover:bg-sky-600 group-hover:text-white transition-colors">
-                <i class="fa-solid fa-arrows-spin text-base"></i>
+            <div class="bg-white/90 backdrop-blur-sm p-3.5 rounded-2xl border border-teal-100 shadow-sm text-center card-hover-fx">
+              <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-2 text-base">
+                <i class="fa-solid fa-arrows-spin"></i>
               </div>
-              <span class="text-xs font-black text-medics-navy leading-tight uppercase">ADJUSTABLE<br>ANGLE</span>
+              <span class="font-heading text-xs font-black text-med-dark block uppercase tracking-tight">ADJUSTABLE<br>ANGLE</span>
             </div>
 
-            <div class="group bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm hover:border-sky-400 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
-              <div class="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2 group-hover:bg-sky-600 group-hover:text-white transition-colors">
-                <i class="fa-solid fa-shield-halved text-base"></i>
+            <div class="bg-white/90 backdrop-blur-sm p-3.5 rounded-2xl border border-teal-100 shadow-sm text-center card-hover-fx">
+              <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-2 text-base">
+                <i class="fa-solid fa-shield-halved"></i>
               </div>
-              <span class="text-xs font-black text-medics-navy leading-tight uppercase">STRONG<br>STABILIZATION</span>
+              <span class="font-heading text-xs font-black text-med-dark block uppercase tracking-tight">STRONG<br>STABILIZATION</span>
             </div>
 
-            <div class="group bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm hover:border-sky-400 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
-              <div class="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2 group-hover:bg-sky-600 group-hover:text-white transition-colors">
-                <i class="fa-solid fa-hand-holding-medical text-base"></i>
+            <div class="bg-white/90 backdrop-blur-sm p-3.5 rounded-2xl border border-teal-100 shadow-sm text-center card-hover-fx">
+              <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-2 text-base">
+                <i class="fa-solid fa-hand-holding-medical"></i>
               </div>
-              <span class="text-xs font-black text-medics-navy leading-tight uppercase">COMFORTABLE<br>SUPPORT</span>
+              <span class="font-heading text-xs font-black text-med-dark block uppercase tracking-tight">COMFORTABLE<br>SUPPORT</span>
             </div>
 
-            <div class="group bg-white p-3.5 rounded-2xl border border-slate-200 shadow-sm hover:border-sky-400 hover:shadow-md transition-all duration-300 text-center flex flex-col items-center">
-              <div class="w-11 h-11 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center mb-2 group-hover:bg-sky-600 group-hover:text-white transition-colors">
-                <i class="fa-solid fa-sliders text-base"></i>
+            <div class="bg-white/90 backdrop-blur-sm p-3.5 rounded-2xl border border-teal-100 shadow-sm text-center card-hover-fx">
+              <div class="w-10 h-10 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center mx-auto mb-2 text-base">
+                <i class="fa-solid fa-sliders"></i>
               </div>
-              <span class="text-xs font-black text-medics-navy leading-tight uppercase">EASY<br>TO ADJUST</span>
+              <span class="font-heading text-xs font-black text-med-dark block uppercase tracking-tight">EASY<br>TO ADJUST</span>
             </div>
 
           </div>
 
-          <!-- Hero CTA Button -->
-          <div class="pt-4 flex flex-wrap items-center gap-4">
+          <!-- Hero Consultation Action Button -->
+          <div class="pt-3">
             <a href="https://wa.me/628111376788?text=Halo%20Admin%20MEDICS8,%20saya%20ingin%20konsultasi%20mengenai%20produk%20ROM%20Knee%20Brace" 
                target="_blank" 
                rel="noopener noreferrer" 
-               class="inline-flex items-center justify-center gap-3.5 bg-medics-navy hover:bg-slate-800 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all text-sm sm:text-base border border-slate-700">
-              <i class="fa-brands fa-whatsapp text-2xl text-emerald-400"></i>
+               class="inline-flex items-center justify-center gap-3.5 bg-med-dark hover:bg-black text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-0.5 transition-all text-sm sm:text-base border border-teal-900/60 group">
+              <i class="fa-brands fa-whatsapp text-2xl text-emerald-400 group-hover:scale-110 transition-transform"></i>
               <span>KONSULTASI PRODUK SEKARANG</span>
             </a>
           </div>
 
         </div>
 
-        <!-- Right Product Graphic -->
-        <div class="lg:col-span-5 relative flex justify-center items-center reveal reveal-right">
-          <div class="w-full max-w-md bg-gradient-to-b from-white to-sky-100/70 rounded-3xl p-6 border border-sky-200 shadow-2xl relative overflow-hidden group">
+        <!-- Right Hero Visual Showcase -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative mx-auto max-w-md">
             
-            <div class="relative overflow-hidden rounded-2xl bg-slate-50/50 p-2">
-              <img src="rom_knee_brace.jpg.jpg" 
-                   alt="ROM Knee Brace Medics8" 
-                   class="w-full h-84 sm:h-96 object-contain rounded-xl transition-transform duration-700 ease-out group-hover:scale-105" />
-            </div>
+            <!-- Glass Frame Badge Container -->
+            <div class="relative bg-white rounded-3xl p-5 border border-teal-200/80 shadow-2xl overflow-hidden group">
+              <div class="relative bg-gradient-to-b from-teal-50/50 to-slate-50 rounded-2xl p-4 flex items-center justify-center">
+                <img src="rom_knee_brace.jpg.jpg" 
+                     alt="ROM Knee Brace Medics8" 
+                     class="w-full h-80 sm:h-96 object-contain rounded-xl transition-transform duration-700 ease-out group-hover:scale-105" />
+              </div>
 
-            <div class="mt-4 bg-medics-navy text-white text-xs sm:text-sm font-black py-3 px-4 rounded-xl shadow-md tracking-wider uppercase text-center border border-slate-700/80">
-              Support Your Recovery Every Step
+              <div class="mt-4 bg-gradient-to-r from-med-dark to-slate-900 text-teal-200 text-xs sm:text-sm font-heading font-black py-3 px-4 rounded-xl shadow tracking-wider uppercase text-center border border-teal-800">
+                Support Your Recovery Every Step
+              </div>
             </div>
 
           </div>
@@ -227,40 +247,43 @@
       </div>
     </section>
 
-    <!-- ================= SECTION: KAPAN HARUS MENGGUNAKAN? (FOTO RELEVAN SESUAI KONDISI LUTUT) ================= -->
-    <section class="space-y-8 reveal">
-      <div class="text-center max-w-3xl mx-auto space-y-3">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-wider">
-          <i class="fa-solid fa-triangle-exclamation text-amber-600"></i>
-          Indikasi & Gejala Lutut
+    <!-- ================= SECTION: INDIKASI & GEJALA LUTUT ================= -->
+    <section class="space-y-10 reveal">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-teal-100 pb-6">
+        <div class="max-w-2xl space-y-2">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-rose-50 border border-rose-200 text-rose-700 text-xs font-black uppercase tracking-wider">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Indikasi & Gejala Lutut
+          </div>
+          <h2 class="font-heading text-3xl sm:text-4xl font-black text-med-dark tracking-tight uppercase">
+            Kapan Anda Harus Menggunakan ROM Knee Brace?
+          </h2>
         </div>
-        <h2 class="text-3xl sm:text-4xl font-black text-medics-navy tracking-tight uppercase">
-          Kapan Anda Harus Menggunakan ROM Knee Brace?
-        </h2>
-        <p class="text-sm sm:text-base text-slate-600">
+        <p class="text-sm sm:text-base text-slate-600 max-w-md">
           Kenali kondisi dan keluhan pada lutut yang memerlukan proteksi serta stabilisasi sudut gerak khusus:
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         
-        <!-- Card 1: Dengkul Nyeri & Ngilu Saat Menumpu -->
-        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-100 group">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
             <div class="h-48 rounded-2xl overflow-hidden mb-4 border border-slate-100 relative bg-slate-100">
               <img src="https://plus.unsplash.com/premium_photo-1661779204668-1453dc7435ae?auto=format&fit=crop&w=700&q=80" 
                    alt="Dengkul Nyeri & Ngilu Saat Menumpu" 
                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <span class="absolute top-3 left-3 bg-red-600/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg backdrop-blur-sm shadow">
+              <span class="absolute top-3 left-3 bg-rose-600/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg backdrop-blur-sm shadow">
                 Nyeri & Ngilu
               </span>
             </div>
             
             <div class="flex items-center gap-2.5 mb-2">
-              <div class="w-8 h-8 rounded-lg bg-red-50 text-red-600 flex items-center justify-center text-sm font-bold shrink-0">
+              <div class="w-8 h-8 rounded-xl bg-rose-50 text-rose-600 flex items-center justify-center text-sm font-bold shrink-0">
                 <i class="fa-solid fa-bolt-lightning"></i>
               </div>
-              <h3 class="text-base font-bold text-medics-navy leading-snug">Dengkul Nyeri & Ngilu Saat Menumpu</h3>
+              <h3 class="font-heading text-base font-bold text-med-dark leading-snug">Dengkul Nyeri & Ngilu Saat Menumpu</h3>
             </div>
             
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -268,13 +291,13 @@
             </p>
           </div>
           
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-red-600 flex items-center gap-1.5">
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-rose-600 flex items-center gap-1.5">
             <i class="fa-solid fa-circle-exclamation"></i> Mencegah tekanan beban langsung
           </div>
         </div>
 
-        <!-- Card 2: Sendi Tidak Stabil / Goyang / Loose -->
-        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-200 group">
+        <!-- Card 2 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
             <div class="h-48 rounded-2xl overflow-hidden mb-4 border border-slate-100 relative bg-slate-100">
               <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=700&q=80" 
@@ -286,10 +309,10 @@
             </div>
             
             <div class="flex items-center gap-2.5 mb-2">
-              <div class="w-8 h-8 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center text-sm font-bold shrink-0">
+              <div class="w-8 h-8 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center text-sm font-bold shrink-0">
                 <i class="fa-solid fa-person-falling"></i>
               </div>
-              <h3 class="text-base font-bold text-medics-navy leading-snug">Lutut Terasa Goyang / 'Loose'</h3>
+              <h3 class="font-heading text-base font-bold text-med-dark leading-snug">Lutut Terasa Goyang / 'Loose'</h3>
             </div>
             
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -297,28 +320,28 @@
             </p>
           </div>
           
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-amber-600 flex items-center gap-1.5">
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-amber-600 flex items-center gap-1.5">
             <i class="fa-solid fa-shield"></i> Butuh stabilisasi bilateral
           </div>
         </div>
 
-        <!-- Card 3: Cedera Robekan Ligamen (ACL / PCL / MCL / Meniscus) -->
-        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-300 group">
+        <!-- Card 3 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
             <div class="h-48 rounded-2xl overflow-hidden mb-4 border border-slate-100 relative bg-slate-100">
               <img src="https://plus.unsplash.com/premium_photo-1661436735845-d136f5778f14?auto=format&fit=crop&w=700&q=80" 
                    alt="Pemeriksaan Anatomi Cedera Ligamen Lutut ACL PCL Meniscus" 
                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              <span class="absolute top-3 left-3 bg-sky-600/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg backdrop-blur-sm shadow">
+              <span class="absolute top-3 left-3 bg-teal-600/90 text-white text-[10px] font-black uppercase px-2.5 py-1 rounded-lg backdrop-blur-sm shadow">
                 Robekan Ligamen
               </span>
             </div>
             
             <div class="flex items-center gap-2.5 mb-2">
-              <div class="w-8 h-8 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center text-sm font-bold shrink-0">
+              <div class="w-8 h-8 rounded-xl bg-teal-50 text-teal-700 flex items-center justify-center text-sm font-bold shrink-0">
                 <i class="fa-solid fa-bone"></i>
               </div>
-              <h3 class="text-base font-bold text-medics-navy leading-snug">Cedera Ligamen (ACL / PCL / MCL)</h3>
+              <h3 class="font-heading text-base font-bold text-med-dark leading-snug">Cedera Ligamen (ACL / PCL / MCL)</h3>
             </div>
             
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -326,13 +349,13 @@
             </p>
           </div>
           
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-sky-600 flex items-center gap-1.5">
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-teal-700 flex items-center gap-1.5">
             <i class="fa-solid fa-sliders"></i> Pembatasan sudut fleksi & ekstensi
           </div>
         </div>
 
-        <!-- Card 4: Pasca Operasi Bedah Ortopedi -->
-        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-100 group">
+        <!-- Card 4 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
             <div class="h-48 rounded-2xl overflow-hidden mb-4 border border-slate-100 relative bg-slate-100">
               <img src="https://images.unsplash.com/photo-1551076805-e1869033e561?auto=format&fit=crop&w=700&q=80" 
@@ -344,10 +367,10 @@
             </div>
             
             <div class="flex items-center gap-2.5 mb-2">
-              <div class="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center text-sm font-bold shrink-0">
+              <div class="w-8 h-8 rounded-xl bg-emerald-50 text-emerald-700 flex items-center justify-center text-sm font-bold shrink-0">
                 <i class="fa-solid fa-hospital-user"></i>
               </div>
-              <h3 class="text-base font-bold text-medics-navy leading-snug">Masa Pemulihan Pasca Operasi</h3>
+              <h3 class="font-heading text-base font-bold text-med-dark leading-snug">Masa Pemulihan Pasca Operasi</h3>
             </div>
             
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -355,13 +378,13 @@
             </p>
           </div>
           
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-emerald-600 flex items-center gap-1.5">
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-emerald-700 flex items-center gap-1.5">
             <i class="fa-solid fa-lock"></i> Mode Imobilisasi / Sudut Bertahap
           </div>
         </div>
 
-        <!-- Card 5: Fase Fisioterapi & Latihan Fleksi-Ekstensi -->
-        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-200 group">
+        <!-- Card 5 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
             <div class="h-48 rounded-2xl overflow-hidden mb-4 border border-slate-100 relative bg-slate-100">
               <img src="https://plus.unsplash.com/premium_photo-1661719096747-0501039e0ab9?auto=format&fit=crop&w=700&q=80" 
@@ -373,10 +396,10 @@
             </div>
             
             <div class="flex items-center gap-2.5 mb-2">
-              <div class="w-8 h-8 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center text-sm font-bold shrink-0">
+              <div class="w-8 h-8 rounded-xl bg-indigo-50 text-indigo-700 flex items-center justify-center text-sm font-bold shrink-0">
                 <i class="fa-solid fa-person-walking-with-cane"></i>
               </div>
-              <h3 class="text-base font-bold text-medics-navy leading-snug">Rehabilitasi & Fisioterapi Aktif</h3>
+              <h3 class="font-heading text-base font-bold text-med-dark leading-snug">Rehabilitasi & Fisioterapi Aktif</h3>
             </div>
             
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -384,13 +407,13 @@
             </p>
           </div>
           
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-indigo-600 flex items-center gap-1.5">
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-indigo-700 flex items-center gap-1.5">
             <i class="fa-solid fa-chart-line"></i> Peningkatan sudut progresif
           </div>
         </div>
 
-        <!-- Card 6: Cedera Olahraga & Pembengkakan -->
-        <div class="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-300 group">
+        <!-- Card 6 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
             <div class="h-48 rounded-2xl overflow-hidden mb-4 border border-slate-100 relative bg-slate-100">
               <img src="https://plus.unsplash.com/premium_photo-1663133612870-2ca5141cb982?auto=format&fit=crop&w=700&q=80" 
@@ -402,10 +425,10 @@
             </div>
             
             <div class="flex items-center gap-2.5 mb-2">
-              <div class="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center text-sm font-bold shrink-0">
+              <div class="w-8 h-8 rounded-xl bg-purple-50 text-purple-700 flex items-center justify-center text-sm font-bold shrink-0">
                 <i class="fa-solid fa-person-running"></i>
               </div>
-              <h3 class="text-base font-bold text-medics-navy leading-snug">Bengkak & Trauma Olahraga</h3>
+              <h3 class="font-heading text-base font-bold text-med-dark leading-snug">Bengkak & Trauma Olahraga</h3>
             </div>
             
             <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -413,7 +436,7 @@
             </p>
           </div>
           
-          <div class="mt-4 pt-3 border-t border-slate-100 text-[11px] font-semibold text-purple-600 flex items-center gap-1.5">
+          <div class="mt-4 pt-3 border-t border-slate-100 text-xs font-bold text-purple-700 flex items-center gap-1.5">
             <i class="fa-solid fa-circle-check"></i> Dukungan stabil struktur kaki
           </div>
         </div>
@@ -421,106 +444,110 @@
       </div>
     </section>
 
-    <!-- ================= SECTION: KENAPA & SISTEM SUDUT ================= -->
+    <!-- ================= SECTION: DUAL DASHBOARD (KENAPA MEMBUTUHKAN + SISTEM SUDUT) ================= -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       
-      <!-- Box 1: Kenapa Membutuhkan (6 Cols) -->
-      <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm glow-border flex flex-col justify-between space-y-6 reveal reveal-left">
-        <div>
-          <div class="flex items-center gap-3.5 border-b border-slate-100 pb-4 mb-4">
-            <div class="p-3 rounded-2xl bg-sky-50 text-sky-600 text-xl font-bold">
+      <!-- Box 1: Kenapa Membutuhkan -->
+      <div class="lg:col-span-6 bg-gradient-to-br from-med-dark to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl flex flex-col justify-between space-y-6 reveal">
+        <div class="space-y-5">
+          
+          <div class="flex items-center gap-3 border-b border-teal-800/80 pb-4">
+            <div class="w-12 h-12 rounded-2xl bg-teal-500/20 text-teal-400 flex items-center justify-center text-2xl">
               <i class="fa-solid fa-circle-question"></i>
             </div>
             <div>
-              <h3 class="text-xl sm:text-2xl font-black text-medics-navy uppercase leading-tight">
+              <h3 class="font-heading text-xl sm:text-2xl font-black uppercase text-white tracking-tight leading-tight">
                 KENAPA MEMBUTUHKAN<br>ROM KNEE BRACE?
               </h3>
             </div>
           </div>
           
-          <p class="text-sm sm:text-base text-slate-600 leading-relaxed mb-6">
+          <p class="text-sm sm:text-base text-slate-300 leading-relaxed">
             Cedera atau tindakan medis pada lutut dapat menyebabkan keterbatasan gerak. ROM Knee Brace membantu memberikan stabilisasi, mengontrol pergerakan dan mendukung proses pemulihan agar lebih optimal.
           </p>
 
-          <ul class="space-y-3.5">
-            <li class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-700 p-2.5 rounded-xl bg-slate-50/80 border border-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-600 text-lg shrink-0"></i>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-teal-950/60 border border-teal-800/60 text-slate-200 text-sm font-semibold">
+              <i class="fa-solid fa-circle-check text-teal-400 text-base shrink-0"></i>
               <span>Stabilisasi pada area lutut</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-700 p-2.5 rounded-xl bg-slate-50/80 border border-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-600 text-lg shrink-0"></i>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-teal-950/60 border border-teal-800/60 text-slate-200 text-sm font-semibold">
+              <i class="fa-solid fa-circle-check text-teal-400 text-base shrink-0"></i>
               <span>Kontrol pergerakan fleksi dan ekstensi</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-700 p-2.5 rounded-xl bg-slate-50/80 border border-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-600 text-lg shrink-0"></i>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-teal-950/60 border border-teal-800/60 text-slate-200 text-sm font-semibold">
+              <i class="fa-solid fa-circle-check text-teal-400 text-base shrink-0"></i>
               <span>Dukungan selama masa pemulihan</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-700 p-2.5 rounded-xl bg-slate-50/80 border border-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-600 text-lg shrink-0"></i>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-teal-950/60 border border-teal-800/60 text-slate-200 text-sm font-semibold">
+              <i class="fa-solid fa-circle-check text-teal-400 text-base shrink-0"></i>
               <span>Membantu menjaga posisi lutut</span>
-            </li>
-            <li class="flex items-center gap-3 text-sm sm:text-base font-semibold text-slate-700 p-2.5 rounded-xl bg-slate-50/80 border border-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-600 text-lg shrink-0"></i>
+            </div>
+            <div class="flex items-center gap-3 p-3 rounded-2xl bg-teal-950/60 border border-teal-800/60 text-slate-200 text-sm font-semibold">
+              <i class="fa-solid fa-circle-check text-teal-400 text-base shrink-0"></i>
               <span>Perlindungan tambahan saat rehabilitasi</span>
-            </li>
-          </ul>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- Box 2: Sistem Pengaturan Sudut (6 Cols) -->
-      <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm glow-border flex flex-col justify-between space-y-6 reveal reveal-right">
-        <div>
-          <div class="flex items-center gap-3.5 border-b border-slate-100 pb-4 mb-4">
-            <div class="p-3 rounded-2xl bg-sky-50 text-sky-600 text-xl font-bold">
+      <!-- Box 2: Sistem Pengaturan Sudut -->
+      <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-10 border border-teal-100 shadow-sm flex flex-col justify-between space-y-6 reveal">
+        <div class="space-y-5">
+          
+          <div class="flex items-center gap-3 border-b border-teal-100 pb-4">
+            <div class="w-12 h-12 rounded-2xl bg-teal-50 text-teal-700 flex items-center justify-center text-2xl">
               <i class="fa-solid fa-compass-drafting"></i>
             </div>
             <div>
-              <h3 class="text-xl sm:text-2xl font-black text-medics-navy leading-tight uppercase">
+              <h3 class="font-heading text-xl sm:text-2xl font-black text-med-dark uppercase leading-tight">
                 SISTEM PENGATURAN SUDUT GERAK LUTUT
               </h3>
-              <p class="text-xs sm:text-sm text-sky-700 font-bold mt-0.5">Atur Rentang Gerak Sesuai Kebutuhan</p>
+              <p class="text-xs sm:text-sm text-teal-700 font-bold">Atur Rentang Gerak Sesuai Kebutuhan</p>
             </div>
           </div>
 
           <div class="space-y-3.5">
             <!-- Fleksi -->
-            <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 transition-all hover:bg-sky-50/50 hover:border-sky-200">
-              <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0 font-bold">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-teal-50/40 border border-teal-100 transition-all hover:bg-teal-50">
+              <div class="w-11 h-11 rounded-xl bg-white text-teal-700 shadow-sm flex items-center justify-center shrink-0 font-bold">
                 <i class="fa-solid fa-rotate-left text-lg"></i>
               </div>
               <div>
-                <h4 class="text-sm font-extrabold text-medics-navy uppercase tracking-wide">FLEKSI LUTUT</h4>
+                <h4 class="font-heading text-sm font-extrabold text-med-dark uppercase tracking-wide">FLEKSI LUTUT</h4>
                 <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Mengatur batas tekukan lutut sesuai kebutuhan.</p>
               </div>
             </div>
 
             <!-- Ekstensi -->
-            <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 transition-all hover:bg-sky-50/50 hover:border-sky-200">
-              <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0 font-bold">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-teal-50/40 border border-teal-100 transition-all hover:bg-teal-50">
+              <div class="w-11 h-11 rounded-xl bg-white text-teal-700 shadow-sm flex items-center justify-center shrink-0 font-bold">
                 <i class="fa-solid fa-arrows-left-right text-lg"></i>
               </div>
               <div>
-                <h4 class="text-sm font-extrabold text-medics-navy uppercase tracking-wide">EKSTENSI LUTUT</h4>
+                <h4 class="font-heading text-sm font-extrabold text-med-dark uppercase tracking-wide">EKSTENSI LUTUT</h4>
                 <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Membantu mengontrol batas lurus pada posisi lutut.</p>
               </div>
             </div>
 
             <!-- Immobilization -->
-            <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-50 border border-slate-100 transition-all hover:bg-sky-50/50 hover:border-sky-200">
-              <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center shrink-0 font-bold">
+            <div class="flex items-start gap-4 p-4 rounded-2xl bg-teal-50/40 border border-teal-100 transition-all hover:bg-teal-50">
+              <div class="w-11 h-11 rounded-xl bg-white text-teal-700 shadow-sm flex items-center justify-center shrink-0 font-bold">
                 <i class="fa-solid fa-lock text-lg"></i>
               </div>
               <div>
-                <h4 class="text-sm font-extrabold text-medics-navy uppercase tracking-wide">IMMOBILIZATION</h4>
+                <h4 class="font-heading text-sm font-extrabold text-med-dark uppercase tracking-wide">IMMOBILIZATION</h4>
                 <p class="text-xs sm:text-sm text-slate-600 mt-0.5">Membantu menjaga lutut tetap berada pada posisi tertentu.</p>
               </div>
             </div>
           </div>
+
         </div>
 
-        <div class="bg-blue-50 border border-blue-200/80 p-4 rounded-2xl flex items-start gap-3">
-          <i class="fa-solid fa-circle-info text-sky-600 text-lg shrink-0 mt-0.5"></i>
-          <p class="text-xs sm:text-sm text-blue-950 font-medium leading-relaxed">
+        <div class="bg-emerald-50 border border-emerald-200/80 p-4 rounded-2xl flex items-start gap-3 text-emerald-950">
+          <i class="fa-solid fa-circle-info text-teal-700 text-lg shrink-0 mt-0.5"></i>
+          <p class="text-xs sm:text-sm font-medium leading-relaxed">
             Pengaturan penggunaan sebaiknya disesuaikan dengan rekomendasi tenaga medis atau profesional kesehatan.
           </p>
         </div>
@@ -528,25 +555,25 @@
 
     </section>
 
-    <!-- ================= SECTION: KEUNGGULAN PRODUK ================= -->
+    <!-- ================= SECTION: KEUNGGULAN PRODUK (5 FEATURE CARDS) ================= -->
     <section class="space-y-8 reveal">
       
       <div class="text-center max-w-2xl mx-auto space-y-2">
-        <h2 class="text-3xl sm:text-4xl font-black text-medics-navy tracking-tight uppercase">
+        <h2 class="font-heading text-3xl sm:text-4xl font-black text-med-dark tracking-tight uppercase">
           KEUNGGULAN PRODUK
         </h2>
-        <div class="w-20 h-1.5 bg-sky-600 mx-auto rounded-full"></div>
+        <div class="w-16 h-1.5 bg-gradient-to-r from-teal-500 to-emerald-500 mx-auto rounded-full"></div>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5">
         
-        <!-- Card 1 -->
-        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-100 group">
+        <!-- Feature 1 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
-            <div class="h-36 rounded-2xl bg-slate-50 mb-4 overflow-hidden border border-slate-200 relative">
+            <div class="h-36 rounded-2xl bg-teal-50 mb-4 overflow-hidden border border-teal-100 relative">
               <img src="rom_knee_brace.jpg.jpg" alt="Adjustable ROM Hinge" class="w-full h-full object-cover object-[35%_48%] scale-[2.2] group-hover:scale-[2.4] transition-transform duration-500" />
             </div>
-            <h4 class="font-black text-sm text-medics-navy mb-2 uppercase leading-snug">
+            <h4 class="font-heading font-black text-sm text-med-dark mb-2 uppercase leading-snug">
               1. ADJUSTABLE ROM HINGE
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -555,13 +582,13 @@
           </div>
         </div>
 
-        <!-- Card 2 -->
-        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-200 group">
+        <!-- Feature 2 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
-            <div class="h-36 rounded-2xl bg-slate-50 mb-4 overflow-hidden border border-slate-200 relative">
+            <div class="h-36 rounded-2xl bg-teal-50 mb-4 overflow-hidden border border-teal-100 relative">
               <img src="rom_knee_brace.jpg.jpg" alt="Stabilitas Lebih Optimal" class="w-full h-full object-cover object-[42%_35%] scale-[1.3] group-hover:scale-[1.45] transition-transform duration-500" />
             </div>
-            <h4 class="font-black text-sm text-medics-navy mb-2 uppercase leading-snug">
+            <h4 class="font-heading font-black text-sm text-med-dark mb-2 uppercase leading-snug">
               2. STABILITAS LEBIH OPTIMAL
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -570,13 +597,13 @@
           </div>
         </div>
 
-        <!-- Card 3 -->
-        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-300 group">
+        <!-- Feature 3 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
-            <div class="h-36 rounded-2xl bg-slate-50 mb-4 overflow-hidden border border-slate-200 relative">
+            <div class="h-36 rounded-2xl bg-teal-50 mb-4 overflow-hidden border border-teal-100 relative">
               <img src="rom_knee_brace.jpg.jpg" alt="Strap Dapat Disesuaikan" class="w-full h-full object-cover object-[45%_62%] scale-[1.9] group-hover:scale-[2.1] transition-transform duration-500" />
             </div>
-            <h4 class="font-black text-sm text-medics-navy mb-2 uppercase leading-snug">
+            <h4 class="font-heading font-black text-sm text-med-dark mb-2 uppercase leading-snug">
               3. STRAP DAPAT DISESUAIKAN
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -585,13 +612,13 @@
           </div>
         </div>
 
-        <!-- Card 4 -->
-        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-400 group">
+        <!-- Feature 4 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
-            <div class="h-36 rounded-2xl bg-slate-50 mb-4 overflow-hidden border border-slate-200 relative">
+            <div class="h-36 rounded-2xl bg-teal-50 mb-4 overflow-hidden border border-teal-100 relative">
               <img src="rom_knee_brace.jpg.jpg" alt="Desain Open Knee" class="w-full h-full object-cover object-[38%_48%] scale-[1.5] group-hover:scale-[1.65] transition-transform duration-500" />
             </div>
-            <h4 class="font-black text-sm text-medics-navy mb-2 uppercase leading-snug">
+            <h4 class="font-heading font-black text-sm text-med-dark mb-2 uppercase leading-snug">
               4. DESAIN OPEN KNEE
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -600,13 +627,13 @@
           </div>
         </div>
 
-        <!-- Card 5 -->
-        <div class="bg-white rounded-3xl p-4 sm:p-5 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal delay-500 group">
+        <!-- Feature 5 -->
+        <div class="bg-white rounded-3xl p-5 border border-slate-200/80 shadow-sm card-hover-fx flex flex-col justify-between group">
           <div>
-            <div class="h-36 rounded-2xl bg-slate-50 mb-4 overflow-hidden border border-slate-200 relative">
+            <div class="h-36 rounded-2xl bg-teal-50 mb-4 overflow-hidden border border-teal-100 relative">
               <img src="rom_knee_brace.jpg.jpg" alt="Material Nyaman" class="w-full h-full object-cover object-[48%_14%] scale-[2.1] group-hover:scale-[2.3] transition-transform duration-500" />
             </div>
-            <h4 class="font-black text-sm text-medics-navy mb-2 uppercase leading-snug">
+            <h4 class="font-heading font-black text-sm text-med-dark mb-2 uppercase leading-snug">
               5. MATERIAL NYAMAN
             </h4>
             <p class="text-xs text-slate-600 leading-relaxed">
@@ -621,115 +648,117 @@
     <!-- ================= SECTION: KONDISI & TARGET PENGGUNA ================= -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       
-      <!-- Box Left: Cocok Digunakan Untuk Kondisi (5 Cols) -->
-      <div class="lg:col-span-5 bg-gradient-to-br from-medics-navy to-slate-900 text-white rounded-3xl p-6 sm:p-10 shadow-xl flex flex-col justify-between space-y-6 reveal reveal-left">
+      <!-- Kolom Kondisi Target (5 Cols) -->
+      <div class="lg:col-span-5 bg-gradient-to-br from-teal-900 to-med-dark text-white rounded-3xl p-6 sm:p-10 shadow-xl flex flex-col justify-between space-y-6 reveal">
         <div>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold uppercase tracking-wider mb-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-bold uppercase tracking-wider mb-3">
             Target Indikasi
           </div>
-          <h3 class="text-2xl sm:text-3xl font-black uppercase tracking-tight mb-6">
+          <h3 class="font-heading text-2xl sm:text-3xl font-black uppercase tracking-tight mb-6">
             COCOK DIGUNAKAN UNTUK KONDISI
           </h3>
 
           <ul class="space-y-4">
             <li class="flex items-start gap-3 text-sm sm:text-base font-medium text-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-400 text-lg mt-0.5"></i>
+              <i class="fa-solid fa-circle-check text-teal-400 text-lg mt-0.5 shrink-0"></i>
               <span>Cedera ligamen lutut (ACL, PCL, MCL, LCL)</span>
             </li>
             <li class="flex items-start gap-3 text-sm sm:text-base font-medium text-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-400 text-lg mt-0.5"></i>
+              <i class="fa-solid fa-circle-check text-teal-400 text-lg mt-0.5 shrink-0"></i>
               <span>Cedera meniscus</span>
             </li>
             <li class="flex items-start gap-3 text-sm sm:text-base font-medium text-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-400 text-lg mt-0.5"></i>
+              <i class="fa-solid fa-circle-check text-teal-400 text-lg mt-0.5 shrink-0"></i>
               <span>Pasca operasi lutut</span>
             </li>
             <li class="flex items-start gap-3 text-sm sm:text-base font-medium text-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-400 text-lg mt-0.5"></i>
+              <i class="fa-solid fa-circle-check text-teal-400 text-lg mt-0.5 shrink-0"></i>
               <span>Rehabilitasi lutut</span>
             </li>
             <li class="flex items-start gap-3 text-sm sm:text-base font-medium text-slate-100">
-              <i class="fa-solid fa-circle-check text-sky-400 text-lg mt-0.5"></i>
+              <i class="fa-solid fa-circle-check text-teal-400 text-lg mt-0.5 shrink-0"></i>
               <span>Kondisi yang membutuhkan pembatasan gerak lutut</span>
             </li>
           </ul>
         </div>
 
-        <p class="text-xs text-slate-400 pt-4 border-t border-slate-700/80 leading-relaxed">
+        <p class="text-xs text-slate-400 pt-4 border-t border-teal-800/80 leading-relaxed">
           Penggunaan produk sebaiknya disesuaikan dengan kondisi dan rekomendasi tenaga medis.
         </p>
       </div>
 
-      <!-- Box Right: Siapa Yang Membutuhkan? (7 Cols) -->
-      <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm glow-border flex flex-col justify-between space-y-6 reveal reveal-right">
+      <!-- Kolom Target Pengguna (7 Cols) -->
+      <div class="lg:col-span-7 bg-white rounded-3xl p-6 sm:p-10 border border-teal-100 shadow-sm flex flex-col justify-between space-y-6 reveal">
         <div>
-          <h3 class="text-2xl sm:text-3xl font-black text-medics-navy uppercase tracking-tight mb-6">
+          <h3 class="font-heading text-2xl sm:text-3xl font-black text-med-dark uppercase tracking-tight mb-6">
             SIAPA YANG MEMBUTUHKAN?
           </h3>
           
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <!-- Item 1 -->
-            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 hover:bg-sky-50/40 transition-all flex flex-col justify-start">
+            
+            <!-- User 1 -->
+            <div class="p-5 rounded-2xl bg-teal-50/40 border border-teal-100/80 hover:bg-teal-50 hover:border-teal-300 transition-all">
               <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold">
+                <div class="w-10 h-10 rounded-xl bg-white text-teal-700 shadow-sm flex items-center justify-center font-bold">
                   <i class="fa-solid fa-person-running text-lg"></i>
                 </div>
-                <h4 class="text-xs sm:text-sm font-extrabold text-medics-navy uppercase">PASIEN CEDERA OLAHRAGA</h4>
+                <h4 class="font-heading text-xs sm:text-sm font-extrabold text-med-dark uppercase">PASIEN CEDERA OLAHRAGA</h4>
               </div>
               <p class="text-xs text-slate-600 leading-relaxed">
                 Membantu memberikan support pada lutut selama proses pemulihan.
               </p>
             </div>
 
-            <!-- Item 2 -->
-            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 hover:bg-sky-50/40 transition-all flex flex-col justify-start">
+            <!-- User 2 -->
+            <div class="p-5 rounded-2xl bg-teal-50/40 border border-teal-100/80 hover:bg-teal-50 hover:border-teal-300 transition-all">
               <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold">
+                <div class="w-10 h-10 rounded-xl bg-white text-teal-700 shadow-sm flex items-center justify-center font-bold">
                   <i class="fa-solid fa-user-doctor text-lg"></i>
                 </div>
-                <h4 class="text-xs sm:text-sm font-extrabold text-medics-navy uppercase">PASCA OPERASI LUTUT</h4>
+                <h4 class="font-heading text-xs sm:text-sm font-extrabold text-med-dark uppercase">PASCA OPERASI LUTUT</h4>
               </div>
               <p class="text-xs text-slate-600 leading-relaxed">
                 Dapat digunakan sebagai penyangga untuk mengontrol pergerakan lutut sesuai arahan medis.
               </p>
             </div>
 
-            <!-- Item 3 -->
-            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 hover:bg-sky-50/40 transition-all flex flex-col justify-start">
+            <!-- User 3 -->
+            <div class="p-5 rounded-2xl bg-teal-50/40 border border-teal-100/80 hover:bg-teal-50 hover:border-teal-300 transition-all">
               <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold">
+                <div class="w-10 h-10 rounded-xl bg-white text-teal-700 shadow-sm flex items-center justify-center font-bold">
                   <i class="fa-solid fa-person-walking-with-cane text-lg"></i>
                 </div>
-                <h4 class="text-xs sm:text-sm font-extrabold text-medics-navy uppercase">PROSES REHABILITASI</h4>
+                <h4 class="font-heading text-xs sm:text-sm font-extrabold text-med-dark uppercase">PROSES REHABILITASI</h4>
               </div>
               <p class="text-xs text-slate-600 leading-relaxed">
                 Memberikan dukungan tambahan selama program pemulihan agar lebih optimal.
               </p>
             </div>
 
-            <!-- Item 4 -->
-            <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 hover:border-sky-300 hover:bg-sky-50/40 transition-all flex flex-col justify-start">
+            <!-- User 4 -->
+            <div class="p-5 rounded-2xl bg-teal-50/40 border border-teal-100/80 hover:bg-teal-50 hover:border-teal-300 transition-all">
               <div class="flex items-center gap-3 mb-2">
-                <div class="w-10 h-10 rounded-xl bg-sky-100 text-sky-700 flex items-center justify-center font-bold">
+                <div class="w-10 h-10 rounded-xl bg-white text-teal-700 shadow-sm flex items-center justify-center font-bold">
                   <i class="fa-solid fa-hospital text-lg"></i>
                 </div>
-                <h4 class="text-xs sm:text-sm font-extrabold text-medics-navy uppercase">KLINIK & RUMAH SAKIT</h4>
+                <h4 class="font-heading text-xs sm:text-sm font-extrabold text-med-dark uppercase">KLINIK & RUMAH SAKIT</h4>
               </div>
               <p class="text-xs text-slate-600 leading-relaxed">
                 Cocok sebagai salah satu pilihan alat orthosis untuk kebutuhan pasien di fasilitas kesehatan.
               </p>
             </div>
+
           </div>
         </div>
       </div>
 
     </section>
 
-    <!-- ================= SECTION: CARA MENGGUNAKAN (5 STEPS) ================= -->
-    <section class="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-slate-200 shadow-sm glow-border space-y-10 reveal">
+    <!-- ================= SECTION: CARA MENGGUNAKAN (5 STEPS TIMELINE) ================= -->
+    <section class="bg-white rounded-3xl p-6 sm:p-10 lg:p-12 border border-teal-100 shadow-sm space-y-10 reveal">
       
       <div class="text-center max-w-2xl mx-auto space-y-2">
-        <h3 class="text-2xl sm:text-3xl font-black text-medics-navy uppercase tracking-tight">
+        <h3 class="font-heading text-2xl sm:text-3xl font-black text-med-dark uppercase tracking-tight">
           CARA MENGGUNAKAN ROM KNEE BRACE
         </h3>
         <p class="text-xs sm:text-sm text-slate-500 font-medium">5 Langkah Praktis Pemasangan yang Tepat dan Nyaman</p>
@@ -738,60 +767,60 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 relative">
         
         <!-- Step 1 -->
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col items-center text-center relative group hover:bg-sky-50/50 hover:border-sky-300 transition-all">
-          <span class="w-8 h-8 rounded-full bg-medics-navy text-white text-xs font-black flex items-center justify-center mb-3 shadow">1</span>
-          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-sky-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
+        <div class="p-5 rounded-2xl bg-teal-50/40 border border-teal-100/90 flex flex-col items-center text-center relative group hover:bg-teal-50 hover:border-teal-300 transition-all">
+          <span class="w-8 h-8 rounded-full bg-med-dark text-teal-300 text-xs font-black flex items-center justify-center mb-3 shadow">1</span>
+          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-teal-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
             <i class="fa-solid fa-street-view"></i>
           </div>
-          <h4 class="font-extrabold text-sm text-medics-navy mb-1.5 leading-snug">Posisikan Brace pada Kaki</h4>
+          <h4 class="font-heading font-extrabold text-sm text-med-dark mb-1.5 leading-snug">Posisikan Brace pada Kaki</h4>
           <p class="text-xs text-slate-600 leading-relaxed">
             Pastikan bagian engsel berada sejajar dengan area sendi lutut.
           </p>
         </div>
 
         <!-- Step 2 -->
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col items-center text-center relative group hover:bg-sky-50/50 hover:border-sky-300 transition-all">
-          <span class="w-8 h-8 rounded-full bg-medics-navy text-white text-xs font-black flex items-center justify-center mb-3 shadow">2</span>
-          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-sky-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
+        <div class="p-5 rounded-2xl bg-teal-50/40 border border-teal-100/90 flex flex-col items-center text-center relative group hover:bg-teal-50 hover:border-teal-300 transition-all">
+          <span class="w-8 h-8 rounded-full bg-med-dark text-teal-300 text-xs font-black flex items-center justify-center mb-3 shadow">2</span>
+          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-teal-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
             <i class="fa-solid fa-up-down-left-right"></i>
           </div>
-          <h4 class="font-extrabold text-sm text-medics-navy mb-1.5 leading-snug">Atur Posisi Brace</h4>
+          <h4 class="font-heading font-extrabold text-sm text-med-dark mb-1.5 leading-snug">Atur Posisi Brace</h4>
           <p class="text-xs text-slate-600 leading-relaxed">
             Sesuaikan panjang dan posisi brace pada paha dan betis.
           </p>
         </div>
 
         <!-- Step 3 -->
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col items-center text-center relative group hover:bg-sky-50/50 hover:border-sky-300 transition-all">
-          <span class="w-8 h-8 rounded-full bg-medics-navy text-white text-xs font-black flex items-center justify-center mb-3 shadow">3</span>
-          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-sky-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
+        <div class="p-5 rounded-2xl bg-teal-50/40 border border-teal-100/90 flex flex-col items-center text-center relative group hover:bg-teal-50 hover:border-teal-300 transition-all">
+          <span class="w-8 h-8 rounded-full bg-med-dark text-teal-300 text-xs font-black flex items-center justify-center mb-3 shadow">3</span>
+          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-teal-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
             <i class="fa-solid fa-bandage"></i>
           </div>
-          <h4 class="font-extrabold text-sm text-medics-navy mb-1.5 leading-snug">Kencangkan Strap</h4>
+          <h4 class="font-heading font-extrabold text-sm text-med-dark mb-1.5 leading-snug">Kencangkan Strap</h4>
           <p class="text-xs text-slate-600 leading-relaxed">
             Pasang dan sesuaikan strap agar brace terpasang dengan nyaman.
           </p>
         </div>
 
         <!-- Step 4 -->
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col items-center text-center relative group hover:bg-sky-50/50 hover:border-sky-300 transition-all">
-          <span class="w-8 h-8 rounded-full bg-medics-navy text-white text-xs font-black flex items-center justify-center mb-3 shadow">4</span>
-          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-sky-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
+        <div class="p-5 rounded-2xl bg-teal-50/40 border border-teal-100/90 flex flex-col items-center text-center relative group hover:bg-teal-50 hover:border-teal-300 transition-all">
+          <span class="w-8 h-8 rounded-full bg-med-dark text-teal-300 text-xs font-black flex items-center justify-center mb-3 shadow">4</span>
+          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-teal-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
             <i class="fa-solid fa-gear"></i>
           </div>
-          <h4 class="font-extrabold text-sm text-medics-navy mb-1.5 leading-snug">Atur Sudut ROM</h4>
+          <h4 class="font-heading font-extrabold text-sm text-med-dark mb-1.5 leading-snug">Atur Sudut ROM</h4>
           <p class="text-xs text-slate-600 leading-relaxed">
             Sesuaikan pengaturan fleksi dan ekstensi sesuai kebutuhan atau rekomendasi tenaga medis.
           </p>
         </div>
 
         <!-- Step 5 -->
-        <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200/90 flex flex-col items-center text-center relative group hover:bg-sky-50/50 hover:border-sky-300 transition-all">
-          <span class="w-8 h-8 rounded-full bg-medics-navy text-white text-xs font-black flex items-center justify-center mb-3 shadow">5</span>
-          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-sky-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
+        <div class="p-5 rounded-2xl bg-teal-50/40 border border-teal-100/90 flex flex-col items-center text-center relative group hover:bg-teal-50 hover:border-teal-300 transition-all">
+          <span class="w-8 h-8 rounded-full bg-med-dark text-teal-300 text-xs font-black flex items-center justify-center mb-3 shadow">5</span>
+          <div class="h-16 w-16 bg-white rounded-2xl flex items-center justify-center text-teal-600 text-2xl shadow-sm mb-3 group-hover:scale-110 transition-transform">
             <i class="fa-solid fa-circle-check"></i>
           </div>
-          <h4 class="font-extrabold text-sm text-medics-navy mb-1.5 leading-snug">Pastikan Brace Stabil</h4>
+          <h4 class="font-heading font-extrabold text-sm text-med-dark mb-1.5 leading-snug">Pastikan Brace Stabil</h4>
           <p class="text-xs text-slate-600 leading-relaxed">
             Pastikan brace tidak terlalu longgar maupun terlalu ketat sebelum digunakan.
           </p>
@@ -800,47 +829,47 @@
       </div>
     </section>
 
-    <!-- ================= SECTION: TABEL KEUNGGULAN & CTA BANNER ================= -->
+    <!-- ================= SECTION: TABEL KEUNGGULAN & CTA CONVERSION BANNER ================= -->
     <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       
-      <!-- Tabel Fitur & Manfaat (6 Kolom di Desktop) -->
-      <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-sm glow-border flex flex-col justify-between reveal reveal-left">
+      <!-- Tabel Fitur & Manfaat (6 Kolom Desktop) -->
+      <div class="lg:col-span-6 bg-white rounded-3xl p-6 sm:p-10 border border-teal-100 shadow-sm flex flex-col justify-between reveal">
         <div>
-          <h3 class="text-lg sm:text-xl font-black text-medics-navy uppercase mb-6 tracking-tight">
+          <h3 class="font-heading text-lg sm:text-xl font-black text-med-dark uppercase mb-6 tracking-tight">
             KEUNGGULAN ADJUSTABLE ROM KNEE BRACE
           </h3>
 
-          <div class="overflow-hidden rounded-2xl border border-slate-200 shadow-sm">
+          <div class="overflow-hidden rounded-2xl border border-teal-100 shadow-sm">
             <table class="w-full text-left text-xs sm:text-sm">
               <thead>
-                <tr class="bg-medics-navy text-white uppercase text-xs tracking-wider">
+                <tr class="bg-gradient-to-r from-med-dark to-slate-900 text-teal-300 uppercase text-xs tracking-wider">
                   <th class="py-3.5 px-4 font-black">FITUR</th>
                   <th class="py-3.5 px-4 font-black">MANFAAT</th>
                 </tr>
               </thead>
-              <tbody class="divide-y divide-slate-200 text-slate-700 bg-white">
-                <tr class="hover:bg-sky-50/50 transition-colors">
-                  <td class="py-3 px-4 font-bold text-medics-navy">Adjustable ROM</td>
+              <tbody class="divide-y divide-teal-50 text-slate-700 bg-white">
+                <tr class="hover:bg-teal-50/40 transition-colors">
+                  <td class="py-3 px-4 font-bold text-med-dark">Adjustable ROM</td>
                   <td class="py-3 px-4">Membantu mengontrol rentang gerak lutut</td>
                 </tr>
-                <tr class="hover:bg-sky-50/50 transition-colors">
-                  <td class="py-3 px-4 font-bold text-medics-navy">Multiple Strap</td>
+                <tr class="hover:bg-teal-50/40 transition-colors">
+                  <td class="py-3 px-4 font-bold text-med-dark">Multiple Strap</td>
                   <td class="py-3 px-4">Lebih mudah disesuaikan</td>
                 </tr>
-                <tr class="hover:bg-sky-50/50 transition-colors">
-                  <td class="py-3 px-4 font-bold text-medics-navy">Strong Frame</td>
+                <tr class="hover:bg-teal-50/40 transition-colors">
+                  <td class="py-3 px-4 font-bold text-med-dark">Strong Frame</td>
                   <td class="py-3 px-4">Memberikan stabilitas tambahan</td>
                 </tr>
-                <tr class="hover:bg-sky-50/50 transition-colors">
-                  <td class="py-3 px-4 font-bold text-medics-navy">Knee Hinge</td>
+                <tr class="hover:bg-teal-50/40 transition-colors">
+                  <td class="py-3 px-4 font-bold text-med-dark">Knee Hinge</td>
                   <td class="py-3 px-4">Mendukung kontrol pergerakan lutut</td>
                 </tr>
-                <tr class="hover:bg-sky-50/50 transition-colors">
-                  <td class="py-3 px-4 font-bold text-medics-navy">Adjustable Fit</td>
+                <tr class="hover:bg-teal-50/40 transition-colors">
+                  <td class="py-3 px-4 font-bold text-med-dark">Adjustable Fit</td>
                   <td class="py-3 px-4">Menyesuaikan penggunaan pada berbagai ukuran kaki</td>
                 </tr>
-                <tr class="hover:bg-sky-50/50 transition-colors">
-                  <td class="py-3 px-4 font-bold text-medics-navy">Comfortable Design</td>
+                <tr class="hover:bg-teal-50/40 transition-colors">
+                  <td class="py-3 px-4 font-bold text-med-dark">Comfortable Design</td>
                   <td class="py-3 px-4">Dirancang untuk penggunaan yang lebih nyaman</td>
                 </tr>
               </tbody>
@@ -849,50 +878,50 @@
         </div>
       </div>
 
-      <!-- Banner Promo CTA (6 Kolom di Desktop) -->
-      <div id="order" class="lg:col-span-6 bg-gradient-to-br from-slate-900 via-medics-navy to-slate-950 text-white rounded-3xl p-6 sm:p-10 shadow-2xl flex flex-col justify-between text-center lg:text-left space-y-6 border border-slate-800 relative overflow-hidden reveal reveal-right">
+      <!-- Banner Promo CTA (6 Kolom Desktop) -->
+      <div id="order" class="lg:col-span-6 bg-gradient-to-br from-med-dark via-slate-900 to-black text-white rounded-3xl p-6 sm:p-10 shadow-2xl flex flex-col justify-between text-center lg:text-left space-y-6 border border-teal-900 relative overflow-hidden reveal">
         
-        <div class="absolute -bottom-16 -right-16 w-64 h-64 bg-sky-500/20 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="absolute -bottom-16 -right-16 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
 
         <div class="relative z-10 space-y-4">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/20 text-sky-300 text-xs font-bold uppercase tracking-wider">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-500/20 text-teal-300 text-xs font-bold uppercase tracking-wider">
             Solusi Pemulihan Optimal
           </div>
           
-          <h3 class="text-2xl sm:text-3xl font-black text-white leading-tight uppercase">
+          <h3 class="font-heading text-2xl sm:text-3xl font-black text-white leading-tight uppercase">
             BANTU DUKUNG PEMULIHAN LUTUT DENGAN PERLINDUNGAN YANG LEBIH OPTIMAL
           </h3>
           
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2">
-            <div class="p-3 rounded-2xl bg-slate-800/80 border border-slate-700 text-center">
-              <i class="fa-solid fa-arrows-spin text-sky-400 text-base mb-1.5 block"></i>
-              <span class="text-[11px] font-black text-slate-200 uppercase">ADJUSTABLE</span>
+            <div class="p-3 rounded-2xl bg-white/5 border border-teal-800/60 text-center backdrop-blur-sm">
+              <i class="fa-solid fa-arrows-spin text-teal-400 text-base mb-1.5 block"></i>
+              <span class="font-heading text-[11px] font-black text-slate-200 uppercase">ADJUSTABLE</span>
             </div>
-            <div class="p-3 rounded-2xl bg-slate-800/80 border border-slate-700 text-center">
-              <i class="fa-solid fa-shield text-sky-400 text-base mb-1.5 block"></i>
-              <span class="text-[11px] font-black text-slate-200 uppercase">STABIL</span>
+            <div class="p-3 rounded-2xl bg-white/5 border border-teal-800/60 text-center backdrop-blur-sm">
+              <i class="fa-solid fa-shield text-teal-400 text-base mb-1.5 block"></i>
+              <span class="font-heading text-[11px] font-black text-slate-200 uppercase">STABIL</span>
             </div>
-            <div class="p-3 rounded-2xl bg-slate-800/80 border border-slate-700 text-center">
-              <i class="fa-solid fa-sliders text-sky-400 text-base mb-1.5 block"></i>
-              <span class="text-[11px] font-black text-slate-200 uppercase">PRAKTIS</span>
+            <div class="p-3 rounded-2xl bg-white/5 border border-teal-800/60 text-center backdrop-blur-sm">
+              <i class="fa-solid fa-sliders text-teal-400 text-base mb-1.5 block"></i>
+              <span class="font-heading text-[11px] font-black text-slate-200 uppercase">PRAKTIS</span>
             </div>
-            <div class="p-3 rounded-2xl bg-slate-800/80 border border-slate-700 text-center">
-              <i class="fa-solid fa-heart-pulse text-sky-400 text-base mb-1.5 block"></i>
-              <span class="text-[10px] font-black text-slate-200 uppercase leading-none">COCOK REHAB</span>
+            <div class="p-3 rounded-2xl bg-white/5 border border-teal-800/60 text-center backdrop-blur-sm">
+              <i class="fa-solid fa-heart-pulse text-teal-400 text-base mb-1.5 block"></i>
+              <span class="font-heading text-[10px] font-black text-slate-200 uppercase leading-none">COCOK REHAB</span>
             </div>
           </div>
         </div>
 
-        <!-- Tombol WhatsApp Kontak -->
+        <!-- Tombol WhatsApp Order -->
         <div class="relative z-10 space-y-2 pt-2">
           <a href="https://wa.me/628111376788?text=Halo%20Admin%20MEDICS8,%20saya%20tertarik%20untuk%20order%20dan%20informasi%20pemesanan%20ROM%20Knee%20Brace" 
              target="_blank" 
              rel="noopener noreferrer" 
-             class="w-full inline-flex items-center justify-center gap-3.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black py-4 px-6 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all text-base sm:text-lg">
-            <i class="fa-brands fa-whatsapp text-2xl"></i>
+             class="w-full inline-flex items-center justify-center gap-3.5 bg-gradient-to-r from-teal-500 via-teal-600 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white font-black py-4 px-6 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-[1.01] transition-all text-base sm:text-lg">
+            <i class="fa-brands fa-whatsapp text-2xl text-white"></i>
             <span>CHAT ADMIN SEKARANG</span>
           </a>
-          <p class="text-xs text-slate-400 font-semibold text-center">
+          <p class="text-xs text-slate-400 font-medium text-center">
             Dapatkan penawaran terbaik untuk Anda!
           </p>
         </div>
@@ -903,60 +932,60 @@
 
   </main>
 
-  <!-- ================= FOOTER TRUST BADGES ================= -->
-  <footer class="bg-medics-navy text-white mt-16 py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-700/80 reveal">
+  <!-- ================= FOOTER TRUST BADGES & DISCLAIMER ================= -->
+  <footer class="bg-med-dark text-white mt-16 py-12 px-4 sm:px-6 lg:px-8 border-t border-teal-900/80 reveal">
     <div class="max-w-7xl mx-auto space-y-10">
       
       <!-- 4 Pillars -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         
-        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/70">
-          <div class="p-3 rounded-xl bg-sky-500/20 text-sky-400 text-xl shrink-0">
+        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-teal-900/60">
+          <div class="p-3 rounded-xl bg-teal-500/20 text-teal-400 text-xl shrink-0">
             <i class="fa-solid fa-award"></i>
           </div>
           <div>
-            <h5 class="text-sm font-extrabold uppercase tracking-wide">100% PRODUK ORIGINAL</h5>
+            <h5 class="font-heading text-sm font-extrabold uppercase tracking-wide">100% PRODUK ORIGINAL</h5>
             <p class="text-xs text-slate-300 mt-1">Jaminan produk asli dan berkualitas</p>
           </div>
         </div>
 
-        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/70">
-          <div class="p-3 rounded-xl bg-sky-500/20 text-sky-400 text-xl shrink-0">
+        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-teal-900/60">
+          <div class="p-3 rounded-xl bg-teal-500/20 text-teal-400 text-xl shrink-0">
             <i class="fa-solid fa-truck-fast"></i>
           </div>
           <div>
-            <h5 class="text-sm font-extrabold uppercase tracking-wide">PENGIRIMAN CEPAT</h5>
+            <h5 class="font-heading text-sm font-extrabold uppercase tracking-wide">PENGIRIMAN CEPAT</h5>
             <p class="text-xs text-slate-300 mt-1">Pengiriman aman dan tepat waktu</p>
           </div>
         </div>
 
-        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/70">
-          <div class="p-3 rounded-xl bg-sky-500/20 text-sky-400 text-xl shrink-0">
+        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-teal-900/60">
+          <div class="p-3 rounded-xl bg-teal-500/20 text-teal-400 text-xl shrink-0">
             <i class="fa-solid fa-headset"></i>
           </div>
           <div>
-            <h5 class="text-sm font-extrabold uppercase tracking-wide">KONSULTASI GRATIS</h5>
+            <h5 class="font-heading text-sm font-extrabold uppercase tracking-wide">KONSULTASI GRATIS</h5>
             <p class="text-xs text-slate-300 mt-1">Tim siap membantu Anda setiap saat</p>
           </div>
         </div>
 
-        <div class="flex items-start gap-4 p-4 rounded-2xl bg-slate-800/50 border border-slate-700/70">
-          <div class="p-3 rounded-xl bg-sky-500/20 text-sky-400 text-xl shrink-0">
+        <div class="flex items-start gap-4 p-4 rounded-2xl bg-white/5 border border-teal-900/60">
+          <div class="p-3 rounded-xl bg-teal-500/20 text-teal-400 text-xl shrink-0">
             <i class="fa-solid fa-thumbs-up"></i>
           </div>
           <div>
-            <h5 class="text-sm font-extrabold uppercase tracking-wide">GARANSI KEPUASAN</h5>
+            <h5 class="font-heading text-sm font-extrabold uppercase tracking-wide">GARANSI KEPUASAN</h5>
             <p class="text-xs text-slate-300 mt-1">Kepuasan Anda adalah prioritas kami</p>
           </div>
         </div>
 
       </div>
 
-      <!-- Disclaimer Box -->
-      <div class="bg-slate-800/70 rounded-2xl p-5 sm:p-6 border border-slate-700 text-slate-300 text-xs sm:text-sm leading-relaxed flex items-start gap-3.5">
-        <i class="fa-solid fa-circle-info text-sky-400 text-xl mt-0.5 shrink-0"></i>
+      <!-- Medical Disclaimer Box -->
+      <div class="bg-black/30 rounded-2xl p-5 sm:p-6 border border-teal-900 text-slate-300 text-xs sm:text-sm leading-relaxed flex items-start gap-3.5">
+        <i class="fa-solid fa-circle-info text-teal-400 text-xl mt-0.5 shrink-0"></i>
         <div>
-          <span class="font-black text-white uppercase tracking-wider block mb-1">DISCLAIMER</span>
+          <span class="font-heading font-black text-white uppercase tracking-wider block mb-1">DISCLAIMER</span>
           Produk ini merupakan alat bantu orthosis. Penggunaan dan pengaturan sudut gerak sebaiknya dilakukan sesuai rekomendasi dokter atau tenaga kesehatan. Hasil penggunaan dapat berbeda tergantung kondisi masing-masing pengguna.
         </div>
       </div>
@@ -968,7 +997,7 @@
     </div>
   </footer>
 
-  <!-- ================= SCROLL ANIMATION SCRIPT ================= -->
+  <!-- ================= SCROLL OBSERVER SCRIPT ================= -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const reveals = document.querySelectorAll('.reveal');
@@ -980,7 +1009,7 @@
           }
         });
       }, {
-        threshold: 0.12,
+        threshold: 0.1,
         rootMargin: '0px 0px -40px 0px'
       });
 
